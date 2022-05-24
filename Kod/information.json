@@ -1,0 +1,109 @@
+{
+    "file": {
+        "object": "file",
+        "id": "file-n2qDibJUgDl2W2FNlCRfFUvZ",
+        "purpose": "fine-tune",
+        "filename": "file",
+        "bytes": 153269,
+        "created_at": 1653398480,
+        "status": "uploaded",
+        "status_details": null
+    },
+    "fine-tune": {
+        "object": "fine-tune",
+        "id": "ft-FplHpVegHbOPmkQnqRyfn0Cj",
+        "hyperparams": {
+            "n_epochs": 2,
+            "batch_size": 1,
+            "prompt_loss_weight": 0.1,
+            "learning_rate_multiplier": 0.2
+        },
+        "organization_id": "org-dSVMZdimxmv9EcMQ6ogaDaNY",
+        "model": "babbage",
+        "training_files": [
+            {
+                "object": "file",
+                "id": "file-n2qDibJUgDl2W2FNlCRfFUvZ",
+                "purpose": "fine-tune",
+                "filename": "file",
+                "bytes": 153269,
+                "created_at": 1653398480,
+                "status": "processed",
+                "status_details": null
+            }
+        ],
+        "validation_files": [],
+        "result_files": [
+            {
+                "object": "file",
+                "id": "file-Bh1YVPj2cifkn3CmOOQlJnOC",
+                "purpose": "fine-tune-results",
+                "filename": "compiled_results.csv",
+                "bytes": 4589,
+                "created_at": 1653398561,
+                "status": "processed",
+                "status_details": null
+            }
+        ],
+        "created_at": 1653398481,
+        "updated_at": 1653398564,
+        "status": "succeeded",
+        "fine_tuned_model": "babbage:ft-abbgymnasiet:william-test-alfa-2022-05-24-13-22-39",
+        "events": [
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Created fine-tune: ft-FplHpVegHbOPmkQnqRyfn0Cj",
+                "created_at": 1653398481
+            },
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Fine-tune costs $0.06",
+                "created_at": 1653398491
+            },
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Fine-tune enqueued. Queue number: 0",
+                "created_at": 1653398492
+            },
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Fine-tune started",
+                "created_at": 1653398494
+            },
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Completed epoch 1/2",
+                "created_at": 1653398527
+            },
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Completed epoch 2/2",
+                "created_at": 1653398538
+            },
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Uploaded model: babbage:ft-abbgymnasiet:william-test-alfa-2022-05-24-13-22-39",
+                "created_at": 1653398561
+            },
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Uploaded result file: file-Bh1YVPj2cifkn3CmOOQlJnOC",
+                "created_at": 1653398563
+            },
+            {
+                "object": "fine-tune-event",
+                "level": "info",
+                "message": "Fine-tune succeeded",
+                "created_at": 1653398564
+            }
+        ]
+    }
+}

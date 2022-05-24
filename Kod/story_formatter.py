@@ -16,17 +16,20 @@ with open("texter\sagor.txt", "r", encoding="utf-8") as txt:
     stories = txt.read().split("\n\n\nTitel: ")
     for story in stories:
         lines = story.split("\n")
-        prompt = "Titel: " + lines[0] + "\n\n###\n\n"
+        prompt = " " + lines[0] + "\n\n###\n\n"
         completion = " "
         for line in lines[1:]:
             completion += line
+        completion += "###"
         dataset.append({'prompt': prompt, 'completion': completion})
 
+json_string = ""
 
-json_string = json.dumps(dataset)
+for entry in dataset:
+    json_string += json.dumps(entry) + "\n"
 
-with open("texter/sagor.json", "w", encoding="utf-8") as f:
-    f.write(json_string)
+with open("texter/sagor.jsonl", "w", encoding="utf-8") as f:
+    f.write(json_string[:-1])
 
 time2 = time()
 print("The program is now finished (" + str((time2-time1)*1000) + " milliseconds)")
