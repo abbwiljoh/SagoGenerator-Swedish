@@ -3,7 +3,7 @@ import openai
 from decouple import config
 import json
 
-title = "Den stora dagen."
+title = ""
 
 with open("Kod\information.json") as info:
     data = json.loads(info.read())
