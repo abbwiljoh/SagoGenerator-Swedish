@@ -5,28 +5,46 @@
     <p style="text-align: center; margin: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 20px;"><i>SagoGeneratorn</i> är ett projekt där AI används för att hitta på nya sagor och historier på svenska
     <br/>För att själv använda tjänsten, skriv bara i en titel i fältet nedan, klicka på knappen, och se vilken historia du får tillbaka. Lycka till!
     </p>    
-    <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 10px;">Sagorna som genereras är inte garanterat relaterade till den titel du valt. Ibland ger den tillbaka en helt egen historia, med annan inspiration. Då kan du antingen skicka ännu en förfrågan, eller använda svaret du fått, då det kan vara ganska komiskt.</p>
+    <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 12px;">Sagorna som genereras är inte garanterat relaterade till den titel du valt. Ibland ger den tillbaka en helt egen historia, med annan inspiration. Då kan du antingen skicka ännu en förfrågan, eller använda svaret du fått, då det kan vara ganska komiskt.</p>
     <div style="margin-top: 45px">
       <input type="text" v-model="title">
       <button @click="submit" :disabled="title.length === 0">Skicka</button>
     </div>
-    <div>
+    <div class="textbox">
       <!-- Här kommer texten som genererats! -->
+      <h1 class="title">{{showTitle}}</h1>
+      <p class="text">{{text}}</p>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: 'HelloWorld',
+  name: 'Homepage',
   data: () => ({
-    title: "Den stora dagen"
+    title: "Den stora dagen",
+    showTitle: "",
+    text: ""
   }),
   methods: {
     submit() {
+      console.log("Getting text...")
       let title = this.title + "."
-      console.log(title)
-      // API-anrop här med title
+      this.showTitle = this.title
+      this.text = "Var god vänta i några sekunder..."
+
+      axios.get('http://127.0.0.1:5000/text?title='+ title)
+      .then(response => {
+        this.text = response.data.text
+      })
+      .catch(e => {
+        console.log(e)
+        this.showTitle = "FEL!"
+        this.text = "Ett fel har inträffat, var god vänta och försök igen!"  
+      })
+
     }
   }
 }
@@ -34,6 +52,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.title{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20pt;
+}
+.text{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 14pt;
+  text-align: justify;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.textbox {
+  border: 3px dotted red;
+  background-color: wheat;
+  width: 60%;
+  left: 50%; 
+  position: absolute; 
+  margin-top: 2.5%; 
+  margin-right: -50%; 
+  transform: translate(-50%, 0%);
+}
 h3 {
   margin: 40px 0 0;
 }

@@ -15,7 +15,7 @@ result = openai.Completion.create(
     model=data["fine-tune"]["fine_tuned_model"],
     prompt=title,
     max_tokens=500,
-    temperature=0.84,
+    temperature=0.81,
 )
 
 print(result)
