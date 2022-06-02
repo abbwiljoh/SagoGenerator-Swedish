@@ -1,6 +1,17 @@
 # SagoGenerator-Swedish
 *AI-genererade historier och sagor på svenska!*
 
+# Innehåll
+- [SagoGenerator-Swedish](#sagogenerator-swedish)
+- [Innehåll](#innehåll)
+  - [Beskrivning](#beskrivning)
+  - [Användning och installation](#användning-och-installation)
+    - [OpenAI](#openai)
+    - [Paket](#paket)
+    - [Kör applikation](#kör-applikation)
+  - [Exempel](#exempel)
+  - [Reflektioner](#reflektioner)
+
 ## Beskrivning
 Sagogeneratorn är ett projekt utvecklat av William Johansson vid ABB-Gymnasiet, som ett sista projekt innan studenten. Tanken var att det här projektet skulle kombinera kunskaper inom AI, API:er och webbutveckling; kunskaper som vi fått under olika programmeringskurser över de tre år vi spenderat på spetsen. 
 
@@ -34,6 +45,9 @@ För det här projektet används den lokala datorn som server för API:n, hostad
 För att starta Vue, gå in i mappen [sagogenerator](sagogenerator/) och skriv in `npm run serve`. 
 
 Nu har du en fullt fungerande hemsida kopplad till AI-tjänsten, förutsatt att du fortfarande har krediter att använda hos OpenAI.
+
+## Exempel
+
 
 ## Reflektioner
 Jag är väldigt nöjd med detta projekt, jag har fått lära mig hur man skapar sin egen API med flask, och också fått hitta egna resurser för att lära mig använda GPT-3. Dessutom har jag fått programmera i väldigt olika stilar, för olika syften, och i olika språk. 
