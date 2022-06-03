@@ -47,7 +47,35 @@ För att starta Vue, gå in i mappen [sagogenerator](sagogenerator/) och skriv i
 Nu har du en fullt fungerande hemsida kopplad till AI-tjänsten, förutsatt att du fortfarande har krediter att använda hos OpenAI.
 
 ## Exempel
+Resultatet man får från GPT-3 (taget från terminalen som kör API-programmet) ser ut som sådant:
+```json
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "logprobs": null,
+      "text": " I dag \u00e4r det enklare att f\u00e5 pengar med att k\u00f6pa \u00f6l. Det \u00e4r den f\u00f6rsta tid sedan \u00f6lpriset steg. I dag \u00e4r det tydligt att allt fler vill k\u00f6pa \u00f6l.En av orsakerna 
+    till det \u00e4r att myndigheterna g\u00f6r en liten omflyttning fr\u00e5n att betala en \u00f6l en g\u00e5ng till att \u00f6ka priset p\u00e5 el\u00e4ndeamet. Medel \u00f6ver huvud taget ska folk k\u00f6pa \u00f6l endast om 
+    de har n\u00e5got att f\u00f6rs\u00e4kra sig om.\"\u00f6l \u00e4r en god b\u00e4rablomma\" sa bergm\u00e4starn av V\u00e4ster\u00e5s.bergm\u00e4starna hade h\u00f6jt priset p\u00e5 \u00f6l En myndighet som tycks ha gjort en omflyttning fr\u00e5n att k\u00f6pa en \u00f6l en g\u00e5ng till att k\u00f6pa en el\u00e4ndeam \u00f6l var det f\u00f6rst\u00e5dde bergm\u00e4starna ikv\u00e4ll. D\u00e5 blev det man ifr\u00e5n. Hur m\u00e5r det d\u00e5 oremskrattet skrattat l\u00e4ngt omkring i landet om man \u00e5t en \u00f6l medan man v\u00e4xte upp! Det \u00e4r nog dags f\u00f6r nya \u00f6lpriset s\u00e5 \u00e4r det bergm\u00e4starna som \u00e4r ansvariga f\u00f6r att \u00f6verklaga det s\u00e5 det kan stiga p\u00e5 ett raskt \u00f6gonblick! D\u00e5 b"
+    }
+  ],
+  "created": 1654238316,
+  "id": "cmpl-5EvF62KWZMKCopX1u0BSWY9UgGU4i",
+  "model": "babbage:ft-abbgymnasiet:william-test-alfa-2022-05-24-13-22-39",
+  "object": "text_completion"
+}
+```
 
+Flask skriver sedan ut requesten från hemsidan som ser ut såhär:
+```cmd
+127.0.0.1 - - [03/Jun/2022 08:38:40] "GET /text?title=Idag%20är%20det%20fredag. HTTP/1.1" 200 -
+```
+
+Hemsidan består av ett inmatningsfält och en knapp för att skicka in sin titel till API:n. Under inmatningsfältet finns en ruta där titel och text laddas in. Här är samma exempel från hemsidans vy:
+![Bild på hemsida med genererad text](idag-fredag.png)
+
+Just det här exemplet är kanske lite olämpligt som godnattsaga, men vissa titlar fungerar bättre än andra, och de svenska texter GPT-3 har tränat på innan fine-tuning påverkar oftast hur texterna ser ut. Det kan dock vara väldigt roligt.
 
 ## Reflektioner
 Jag är väldigt nöjd med detta projekt, jag har fått lära mig hur man skapar sin egen API med flask, och också fått hitta egna resurser för att lära mig använda GPT-3. Dessutom har jag fått programmera i väldigt olika stilar, för olika syften, och i olika språk. 
