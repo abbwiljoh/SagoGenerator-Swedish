@@ -16,7 +16,7 @@ def get_text(title: str) -> str:
         model=data["fine-tune"]["fine_tuned_model"],
         prompt=title,
         max_tokens=400,
-        temperature=0.83,
+        temperature=0.81,
     )
 
     result_text = result["choices"][0]["text"]
